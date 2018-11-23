@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    
+    
+    <bean id = "rule" class="com.anil.Udemy1.Rule1"></bean>
+    <context:property-placeholder location="classpath:data"/>
+    <bean init-method="start" destroy-method="end" id="coach" class="com.anil.Udemy1.Cricket"> <!-- in init mrthod calling start method -->
+    	<!-- here we can use scope type  by default it is prototype -->
+    	<constructor-arg ref="rule"/> 
+    	<property name="vision" ref ="vision"></property><!-- for setter -->
+    	<property name="name" value="Anil Kumar meena"></property> <!-- sending value for name field in bean -->
+    	<property name="id" value="${foo.id}"></property> <!-- using property file -->
+    	
+    	
+    </bean>
+    <bean id = "vision" class="com.anil.Udemy1.CricketVision"></bean>
+  </beans>
