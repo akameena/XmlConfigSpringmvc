@@ -8,9 +8,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
     
     
-    
+    <context:property-placeholder location="classpath:data"/><!-- here defining properties file location  -->
     <bean id = "rule" class="com.anil.Udemy1.Rule1"></bean>
-    <context:property-placeholder location="classpath:data"/>
+    
     <bean init-method="start" destroy-method="end" id="coach" class="com.anil.Udemy1.Cricket"> <!-- in init mrthod calling start method -->
     	<!-- here we can use scope type  by default it is prototype -->
     	<constructor-arg ref="rule"/> 
